@@ -13,6 +13,8 @@
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 
@@ -21,19 +23,21 @@
     <p class="text-center"><a href="http://knowyourmeme.com/memes/mocking-spongebob">What's SpongeMock?</a></p>
 </div>
 
-<div class="container">
+<div class="container center-block">
 
     <div class="row">
-        <form id="mockForm">
-            <input class="form-control form-control-lg" id="userString" type="text" placeholder="Paste text to mock here">
+        <div class="col-md-12 center-block">
+            <form id="mockForm">
+                <input class="form-control form-control-lg" id="userString" type="text" placeholder="Paste text to mock here">
+                <br>
+                <button type="submit" class="btn btn-primary center-block">SpongeMock</button>
+            </form>
             <br>
-            <button type="submit" class="btn btn-primary center-block">SpongeMock</button>
-        </form>
+        </div>
     </div>
-    <br>
     <div class="row">
-        <div class="form-group">
-            <textarea class="form-control" rows="5" id="mockedString" placeholder="Mocked text will appear here"></textarea>
+        <div class="col-md-12 center-block">
+            <textarea class="form-control form-control-lg" rows="1" id="mockedString" placeholder="Mocked text will appear here"></textarea>
             <br>
             <div class="text-center">
                 <button class="btn btn-success" data-clipboard-target="#mockedString">Copy</button>
@@ -41,9 +45,14 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <div class="row">
+        <div class="col-md-12 center-block">
+            <img src="assets/images/spongemock.jpg" class="center-block" style="max-width: 50%" id="spongeBobPic">
+        </div>
+    </div>
 </div>
-
+<br>
 <footer class="text-center">
     by <a href="https://twitter.com/natevillegas">@natevillegas</a>
 </footer>
@@ -56,6 +65,7 @@
 
         $("#mockForm").submit(function(e) {
             e.preventDefault();
+            $('#mockedString').empty();
             var userString = $('#userString').val();
             userString = userString.toLowerCase();
             console.log(userString)
@@ -71,7 +81,7 @@
                 .removeAttr('checked')
                 .removeAttr('selected');
             $('#mockedString').empty();
-    });
+        });
     });
 
 </script>
