@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpongeMock Generator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+    <!-- Added link to clipboard.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="text-center">SpongeMock Generator</h1>
+    <p class="text-center"><a href="http://knowyourmeme.com/memes/mocking-spongebob">What's SpongeMock?</a></p>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <form id="mockForm">
+            <input class="form-control form-control-lg" id="userString" type="text" placeholder="Paste text to mock here">
+            <br>
+            <button type="submit" class="btn btn-primary center-block">SpongeMock</button>
+        </form>
+    </div>
+    <br>
+    <div class="row">
+        <div class="form-group">
+            <textarea class="form-control" rows="5" id="mockedString" placeholder="Mocked text will appear here"></textarea>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-success" data-clipboard-target="#mockedString">Copy</button>
+                <button class="btn" id="resetButton">Reset</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="text-center">
+    by <a href="https://twitter.com/natevillegas">@natevillegas</a>
+</footer>
+
+<script type="text/javascript">
+    
+    new Clipboard('.btn');
+
+    $(document).ready(function(){
+
+        $("#mockForm").submit(function(e) {
+            e.preventDefault();
+            var userString = $('#userString').val();
+            userString = userString.toLowerCase();
+            console.log(userString)
+            for (i = 0; i < userString.length; i = i+2) {
+                $("#mockedString").append(userString.charAt(i).toUpperCase() + userString.charAt(i+1))
+            }
+        });
+
+        $('#resetButton').click(function() {
+            $(':input','#mockForm','mockedString')
+                .not(':button, :submit, :reset, :hidden')
+                .val('')
+                .removeAttr('checked')
+                .removeAttr('selected');
+            $('#mockedString').empty();
+    });
+    });
+
+</script>
+
+</body>
+</html>
