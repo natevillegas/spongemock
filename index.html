@@ -12,37 +12,45 @@
 
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <!-- Added a link to custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
 
-<div>
-    <h1 class="text-center">SpongeMock Generator</h1>
-    <p class="text-center"><a href="http://knowyourmeme.com/memes/mocking-spongebob">What's SpongeMock?</a></p>
+<div class="jumbotron">
+    <h1 class="text-center heading-text">SpongeMock Generator</h1>
+    <p align="center"> <a class="btn btn-primary btn-lg" href="http://knowyourmeme.com/memes/mocking-spongebob" role="button">What's SpongeMock?</a> </p>
     <br>
 </div>
 
 <div class="container center-block">
-
-    <div class="row">
-        <div class="col-md-12 center-block">
-            <form id="mockForm">
-                <input class="form-control form-control-lg" id="userString" type="text" placeholder="Paste text to mock here">
-                <br>
-                <button type="submit" class="btn btn-primary center-block">SpongeMock</button>
-            </form>
-            <br>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 center-block">
-            <textarea class="form-control form-control-lg" rows="1" id="mockedString" placeholder="Mocked text will appear here"></textarea>
-            <br>
-            <div class="text-center">
-                <button class="btn btn-success" data-clipboard-target="#mockedString">Copy</button>
-                <button class="btn btn-outline-secondary" id="resetButton">Reset</button>
+    <div class="panel panel-default">
+        <div class="panel-heading"> 
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 center-block">
+                        <form id="mockForm">
+                            <input class="form-control form-control-lg" id="userString" type="text" placeholder="Paste text to mock here">
+                            <br>
+                            <button type="submit" class="btn btn-primary center-block">SpongeMock</button>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 center-block">
+                        <textarea class="form-control form-control-lg" rows="1" id="mockedString" placeholder="Mocked text will appear here"></textarea>
+                        <br>
+                        <div class="text-center">
+                            <button class="btn btn-success" data-clipboard-target="#mockedString">Copy</button>
+                            <button class="btn btn-outline-secondary" id="resetButton">Reset</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
